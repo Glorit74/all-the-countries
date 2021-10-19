@@ -1,0 +1,35 @@
+* {
+    margin:0;
+    padding:0;
+    border:0;
+  
+    background:transparent;
+    
+    outline:none;
+    text-decoration:none;
+    outline:none;
+    font-family:inherit;
+    box-sizing:border-box;
+  }
+  
+  ol, ul, li {
+    list-style:none;
+    display:block;
+  }
+  
+  body {
+    font-family: 'Overpass', sans-serif;
+  }
+  
+  #root {
+    max-width: 1200px;
+    background-color: #efefef;
+    margin: 80px auto;
+  
+    display: grid;
+    grid-template-rows: repeat(3, 1fr);
+    grid-template-columns: repeat(3, 1fr);
+    padding: 40px;
+    grid-gap: 40px;
+    min-height: 100vh;
+  }

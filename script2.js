@@ -1,17 +1,29 @@
 async function loadEvent() {
-
-    const rootElement = document.getElementById('root');
-
-    const res = await fetch("https://restcountries.com/v3.1/name/peru");
-    const peru = await res.json();
-    console.log(peru);
     
+     const rootElement = document.getElementById('root');
+
+    const res = await fetch("https://restcountries.com/v3.1/all");
+    const countries = await res.json();
+    console.log(countries);
+
+    for (const country of countries) {
+          
+        const countryHTML = `
+            <section class="independent">
+                <img src="${country.flags.png}" alt="flag">
+                <h1>${country.name.official}</h1>
+                <h2>${country.capital}</h2>
+            </section>
+            `;
+        rootElement.insertAdjacentHTML('beforeend', countryHTML);
+    }
+
+   /*    
     // console.log(`peru's length: `,peru.length);
     // console.log(typeof peru);
     // console.log(peru[0].name.official);
 
-    const peruO = peru[0];
-    console.log(peruO);
+    const country = peru[0];
 
     //ITERATING OVER LANGUAGES
     let firstLang = `first language`;
@@ -21,7 +33,7 @@ async function loadEvent() {
       }
 
     //LANDLOCKED OR NOT
-    if (peruO.landlocked === true) {
+    if (country.landlocked === true) {
         isLandlockedText = `Peru is a landlocked country`;
     } else {
         isLandlockedText = `Peru is not a landlocked country`;
@@ -29,9 +41,9 @@ async function loadEvent() {
 
     const peruHTML = `
         <section class="independent">
-            <img src="${peruO.flags.png}" alt="flag">
-            <h1>${peruO.name.official}</h1>
-            <h2>${peruO.capital}</h2>
+            <img src="${country.flags.png}" alt="flag">
+            <h1>${country.name.official}</h1>
+            <h2>${country.capital}</h2>
             <ul>
                 <li>First language: ${firstLang}</li>
             </ul>
@@ -41,7 +53,7 @@ async function loadEvent() {
 
     console.log(rootElement);
 
-    rootElement.insertAdjacentHTML('beforeend', peruHTML);
+    rootElement.insertAdjacentHTML('beforeend', peruH TML); */
 }
 
 window.addEventListener("load", loadEvent);
